@@ -5,18 +5,21 @@ use \Workerman\Lib\Timer;
 use \Workerman\MySQL;
 
 /**
- *
+ *	@desc:获取模板
  */
 class mail_module
 {
 		private $email = null;
-		
+
+		/**
+		 *	@desc:构造函数
+		 */
 		public function __construct()
 		{
 		}
-		
+
 		/**
-		 *		获取邮件模板
+		 *	@desc:获取邮件模板内容
 		 */
 		public function get_email_moudle($type = null)
 		{
@@ -38,7 +41,7 @@ class mail_module
 								$rtn_info  = $template;
 								break;
 				}
-				
+
 				return $rtn_info;
 		}
 }

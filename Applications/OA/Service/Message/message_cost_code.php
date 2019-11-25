@@ -3,15 +3,21 @@ namespace Service\Message;
 
 use \Workerman\MySQL;
 
+/**
+ *	@desc:按成本中心获取人员信息
+ */
 class message_cost_code extends message_common
 {
+		/**
+		 *	@desc:构造函数
+		 */
 		public function __construct()
 		{
 				parent::__construct();
 		}
 
 		/**
-		 *
+		 *	@desc:邮件发送处理
 		 */
 		public function send_main($id,$send_id)
 		{
@@ -48,7 +54,7 @@ class message_cost_code extends message_common
 		}
 		
 		/**
-		 *
+		 *	@desc:获取部门信息
 		 */
 		public function get_all_dept_user($userid)
 		{
@@ -80,7 +86,7 @@ class message_cost_code extends message_common
 		}
 		
 		/**
-		 *
+		 *	@desc:获取经理信息
 		 */
 		private function get_manager($userid)
 		{
@@ -115,6 +121,5 @@ class message_cost_code extends message_common
 						return null;
 				}
 		}
-		
 }
 ?>

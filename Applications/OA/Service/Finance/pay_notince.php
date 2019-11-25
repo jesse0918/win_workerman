@@ -6,7 +6,6 @@ use \Workerman\MySQL;
 /**
  *  @desc ：发票核销通知
  */
-
 class pay_notince
 {
 		private $db_conn     = null;
@@ -21,6 +20,10 @@ class pay_notince
 		
 		private $mail_model  = null;
 
+		/**
+		 *	@desc:构造函数
+		 *	初期化设置
+		 */
 		public function __construct()
 		{
 				if(is_null($this->db_conn))
@@ -33,30 +36,36 @@ class pay_notince
 																		 \Service\Common\Config\config::db_name,
 																		 0,
 																		 'utf8');
-						
-						$this->tbl_prefix = \Service\Common\Config\config::g_tbl_prefix;
-						
-						$this->mail_set   = \Service\Common\Config\config::$mail_grp_fin;
-				
-						$this->object_mail = new \Service\Common\Email\sendmail();
-				
-						$this->object_mail -> set_mail_set($this->mail_set);
-						
-						$this->list_info   = array();
-						
-						$this->mail_model  = $this->mail_model();
 				}
+
+				$this->tbl_prefix = \Service\Common\Config\config::g_tbl_prefix;
+						
+				$this->mail_set   = \Service\Common\Config\config::$mail_grp_fin;
+				
+				$this->object_mail = new \Service\Common\Email\sendmail();
+				
+				$this->object_mail -> set_mail_set($this->mail_set);
+						
+				$this->list_info   = array();
+						
+				$this->mail_model  = $this->mail_model();
 		}
 		
+		/**
+		 *	@desc:通知处理
+		 */
 		public function notice()
 		{
-				//對象通知
+				//對象取得
 				$this -> get_notice_list();
 				
-				//
+				//邮件发送
 				$this -> send_mail();
 		}
 		
+		/**
+		 *	@desc 對象取得
+		 */
 		private function get_notice_list()
 		{
 				$sql = "select a.finance_def_no
@@ -74,6 +83,9 @@ class pay_notince
 				}
 		}
 		
+		/**
+		 *	@desc:邮件发送
+		 */
 		private function send_mail()
 		{
 				if(empty($this->list_info))
@@ -124,6 +136,9 @@ class pay_notince
 				
 		}
 		
+		/**
+		 *	@desc:邮件模板取得处理
+		 */
 		private function mail_model()
 		{
 				$model = '';

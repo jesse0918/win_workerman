@@ -3,12 +3,18 @@ namespace Service\Message;
 
 use \Workerman\MySQL;
 
+/**
+ *	@desc:邮件对象（依据条件，选定人员信息）
+ */
 class message_select extends message_common
 {	
 		private $city_info    = null;
 		
 		private $site_info    = null;
-
+		
+		/**
+		 *	@desc:构造函数
+		 */
 		public function __construct()
 		{
 				parent::__construct();
@@ -19,7 +25,7 @@ class message_select extends message_common
 		}
 
 		/**
-		 *
+		 *	@desc:发送邮件主处理
 		 */
 		public function send_main($id,$send_id)
 		{
@@ -53,7 +59,6 @@ class message_select extends message_common
 						}
 				}
 		}
-		
 		
 		private function get_message_info($id)
 		{

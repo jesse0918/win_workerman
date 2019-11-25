@@ -3,6 +3,9 @@ namespace Service\Message;
 
 use \Workerman\MySQL;
 
+/**
+ *	@发送邮件
+ */
 class message_mail extends message_common
 {
 		private $object_mail = null;
@@ -13,6 +16,9 @@ class message_mail extends message_common
 		
 		private $emp_list    = null;
 		
+		/**
+		 *	@desc:构造函数
+		 */
 		public function __construct()
 		{
 				parent::__construct();
@@ -35,6 +41,7 @@ class message_mail extends message_common
 				
 				$this -> get_emp_info($id);
 				
+				//1：单独发送；群组发送
 				switch($this -> msg_info['msg_type'])
 				{
 						case '1':
@@ -48,6 +55,7 @@ class message_mail extends message_common
 
 		/**
 		 *	@desc:获取发件信息
+		 *	@Parm1: 邮件id
 		 */
 		private function get_message_info($id)
 		{
@@ -66,7 +74,7 @@ class message_mail extends message_common
 		}
 		
 		/**
-		 *
+		 *	@desc：员工信息获取
 		 */
 		public function get_emp_info($id)
 		{
@@ -88,7 +96,7 @@ class message_mail extends message_common
 		}
 		
 		/**
-		 *
+		 *	@desc:单独邮件发送
 		 */
 		public function send_one_by_one()
 		{
@@ -105,7 +113,7 @@ class message_mail extends message_common
 		}
 		
 		/**
-		 *
+		 *	@desc:群发邮件，一个发送对象
 		 */
 		public function send_one_by_all()
 		{

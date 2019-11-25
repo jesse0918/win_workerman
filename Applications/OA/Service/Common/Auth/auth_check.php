@@ -1,9 +1,8 @@
 <?php
 namespace Service\Common\Auth;
 
-
 /**
- *	@desc:ÇëÇóÓÃ»§ÑéÖ¤¡£
+ *	@desc:è¯·æ±‚ç”¨æˆ·éªŒè¯ã€‚
  */
 class auth_check
 {
@@ -29,7 +28,7 @@ class auth_check
 		}
 		
 		/**
-		 *	@desc:Îö¹¹º¯Êý
+		 *	@desc:æž„é€ å‡½æ•°
 		 */
 		public function __construct()
 		{
@@ -37,48 +36,39 @@ class auth_check
 		}
 		
 		/**
-		 *	@desc:ÓÃ»§ÑéÖ¤
+		 *	@desc:ç”¨æˆ·éªŒè¯
 		 */
 		public function auth_chk_info()
 		{
-				//Ê±¼äµÄcheck
-				if(empty($this->timeStamp))
-				{
-						return false;
-				}
+				//æ—¶é—´çš„check
+				if(empty($this->timeStamp)) return false;
 			
-				//·ÀÖ¹¶ñÒâ·ÃÎÊ
+				//é˜²æ­¢æ¶æ„è®¿é—®
 				list($t1, $t2) = explode(' ', microtime());
 				$nowtimeStamp  = (float)sprintf('%.0f',(floatval($t1)+floatval($t2))*1000);
 			
 				$time_diff = $nowtimeStamp - $this->timeStamp;
 			
-				if($time_diff > 210000)
-				{
-						return false;
-				}
+				if($time_diff > 210000) return false;
 			
-				//»ñÈ¡Æ¾Ö¤
+				//èŽ·å–å‡­è¯
 				$server_signature = $this->get_auth_sign();
 			
-				//checkÆ¾Ö¤;
-				if($server_signature === $this->signature)
-				{
-						return true;
-				}
+				//checkå‡­è¯;
+				if($server_signature === $this->signature) return true;
 			
 				return  false;
 		}
 		
 		/**
-		 *	@desc:Ç©ÃûµÄÉú³É
+		 *	@desc:ç­¾åçš„ç”Ÿæˆ
 		 */
 		private function get_auth_sign()
 		{
 				$rtn_signature = null;
-				//Ëæ»úÊý
+				//éšæœºæ•°
 				$salt      = rand(0,1000);
-				//Éú³ÉÇ©Ãû
+				//ç”Ÿæˆç­¾å
 				$arr =array(\Service\Common\Config\config::api_token,
 										$this->timeStamp,
 										$this->salt,

@@ -3,6 +3,9 @@ namespace Service\Message;
 
 use \Workerman\MySQL;
 
+/**
+ *	@desc:按处理群组获取人员信息
+ */
 class message_fun_dept extends message_common
 {
 		public function __construct()
@@ -11,7 +14,7 @@ class message_fun_dept extends message_common
 		}
 
 		/**
-		 *
+		 *	@desc:邮件发送处理
 		 */
 		public function send_main($id,$send_id,$fun_id)
 		{
@@ -50,7 +53,7 @@ class message_fun_dept extends message_common
 		}
 		
 		/**
-		 *
+		 *	@desc:获取发送群组信息
 		 */
 		public function get_fun_dept_user($fun_id)
 		{

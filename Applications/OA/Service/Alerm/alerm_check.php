@@ -45,6 +45,7 @@ class alerm_check
 		
 		/**
 		 *	@desc:查看信息的导出量
+		 *	Parm1:报警用ID
 		 */
 		public function get_alert_info($alerm_id)
 		{
@@ -82,6 +83,7 @@ class alerm_check
 		
 		/**
 		 *	@desc:邮件内容获取
+		 *	Parm1:报警用ID
 		 */
 		public function get_mail_content($alert_id)
 		{

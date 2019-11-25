@@ -3,15 +3,21 @@ namespace Service\Message;
 
 use \Workerman\MySQL;
 
+/**
+ *	@desc:按工号获取人员信息
+ */
 class message_emp extends message_common
 {
+		/**
+		 *	@desc:构造函数
+		 */
 		public function __construct()
 		{
 				parent::__construct();
 		}
 
 		/**
-		 *
+		 *	@desc:邮件发送处理
 		 */
 		public function send_main($id,$send_id,$emp_info)
 		{

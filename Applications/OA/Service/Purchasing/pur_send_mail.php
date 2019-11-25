@@ -5,8 +5,7 @@ use \Workerman\Lib\Timer;
 use \Workerman\MySQL;
 
 /**
- *  邮件发送规则
- *  说明:整个邮件的规则
+ *  @desc:采购审批的整个邮件发送机制
  */
 class pur_send_mail
 {
@@ -20,6 +19,9 @@ class pur_send_mail
 		
 		private $mail_temp   = null;
 		
+		/**
+		 *	@desc:构造函数
+		 */
 		public function __construct()
 		{
 				if(is_null($this->db_conn))
@@ -46,7 +48,8 @@ class pur_send_mail
 		}
 		
 		/**
-		 *  邮件主处理
+		 *	@desc:邮件主处理
+		 *  Parm1:采购单ID
 		 */
 		public function send_main($id)
 		{
@@ -176,7 +179,8 @@ class pur_send_mail
 		}
 		
 		/**
-		 *  获取当前采购数据的信息
+		 *	@desc:获取当前采购信息
+		 *	Parm1:采购单ID
 		 */
 		private function get_pur_info($id)
 		{
@@ -207,7 +211,7 @@ class pur_send_mail
 		}
 		
 		/**
-		 *  获取群组用户
+		 *	@desc:获取群组用户
 		 */
 		private function get_group_user($positon_name)
 		{

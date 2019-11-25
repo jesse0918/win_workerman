@@ -3,6 +3,9 @@ namespace Service\Message;
 
 use \Workerman\MySQL;
 
+/**
+ *	@desc:π≤Õ®£®∏∏¿‡£©
+ */
 class message_common
 {
 		protected $db_conn      = null;

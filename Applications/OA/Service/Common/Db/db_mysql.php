@@ -1,5 +1,7 @@
 <?php
+
 namespace Service\Common\Db;
+
 /**
  *	@desc:数据连接
  */

@@ -3,7 +3,7 @@ namespace Service\Common\Config;
 
 
 /**
- *	@desc:¹²Í¨ÐÅÏ¢µÄÅäÖÃ
+ *	@desc:å…±é€šä¿¡æ¯çš„é…ç½®
  */
 class config
 {
@@ -27,26 +27,26 @@ class config
 		
 		const html_url     = "http://10.2.12.55/";
 
-		//¹²Í¨ÓÊ¼þÅäÖÃ
+		//å…±é€šé‚®ä»¶é…ç½®
 		static $mail_grp_com = array("user"      => "Crm1",
 															   "pass"      => "Password01!",
 															   "from"      => "crm1@transcosmos-cn.com",
-															   "from_name" => "´óÓîÖæOAÏµÍ³",
+															   "from_name" => "å¤§å®‡å®™OAç³»ç»Ÿ",
 															  );
-		//²ÆÎñÓÊ¼þÅäÖÃ
+		//è´¢åŠ¡é‚®ä»¶é…ç½®
 		static $mail_grp_fin = array("user"      => "Crm9",
 															   "pass"      => "Password09!",
 															   "from"      => "crm9@transcosmos-cn.com",
 															   "from_name" => "TCC OA Finance",
 															  );
 
-		//ÅàÑµÏµÍ³ÅäÖÃ
+		//åŸ¹è®­ç³»ç»Ÿé…ç½®
 		static $mail_grp_tra = array('user'      => 'Crm15',
 															   'pass'      => 'Password15!',
 															   'from'      => 'crm15@transcosmos-cn.com',
 															   'from_name' => 'TCC OA Training',
 															  );
-		//²É¹ºÏµÍ³ÅäÖÃ
+		//é‡‡è´­ç³»ç»Ÿé…ç½®
 		static $mail_grp_pur = array('user'      => 'Crm2',
 															   'pass'      => 'Password02!',
 															   'from'      => 'crm2@transcosmos-cn.com',
